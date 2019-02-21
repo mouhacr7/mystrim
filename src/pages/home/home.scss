@@ -1,0 +1,33 @@
+page-home {
+
+  #app-section {
+    #app-title {
+      color: color($colors, 'dark');
+      text-transform: uppercase;
+    }
+    #logo{
+      width: 70%;
+      margin-bottom: 20px;
+    }
+    #btn_playlist{
+      font-weight: bold;
+      color: color($colors, 'light');
+      background-color: color($colors, 'danger');
+    }
+    #btn_stream{
+      font-weight: bold;
+      color: color($colors, 'light');
+      background-color: color($colors, 'tertiary');
+    }
+    ion-icon {
+      font-size: 15rem;
+    }
+  }
+  #media-controls {
+    button {
+      ion-icon {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
