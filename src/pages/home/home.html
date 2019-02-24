@@ -1,13 +1,192 @@
-<ion-header>
-  <ion-navbar color="hype">
-    <ion-title>Rimify</ion-title>
-    <ion-buttons end>
-      <button *ngIf="loggedIn" ion-button icon (click)="logout()">Logout</button>
-    </ion-buttons>
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title>
+      MyStrim
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content fullscreen padding class="card-background-page">
+  <div class="main-content">
+  <ion-card>
+    <img src="assets/imgs/mozbi.jpg">
+    <div class="card-title">São Paulo</div>
+    <div class="card-subtitle">41 Listings</div>
+  </ion-card>
+
+  <h2 class="with-button">Discover Great Cards
+    <button ion-button clear icon-start small>
+      more</button>
+  </h2>
+
+  <!--
+         card-slides: triggers some sass options
+         slidesPerView: defines the "ammount" of visible slides. the trick = decimal numbers
+         spaceBetween: is basically the margin between each slide in px
+  -->
+  <ion-slides card-slides slidesPerView="1.18" spaceBetween="10" class="card-background-page">
+    <ion-slide>
+      <ion-card class="card1">
+        <img src="assets/imgs/mozbi.jpg">
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class="card2">
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class="card1" style="background: url('assets/imgs/ceepee.jpg')">
+        <!--<img src="assets/imgs/taleb.jpeg">-->
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class="card1">
+        <img src="assets/imgs/tonia.jpg">
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class="card1">
+        <img src="assets/imgs/adviser2.jpg">
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+    <h2> <strong>Parcourir</strong></h2>
+
+    <ion-slides card-slides slidesPerView="2.18" spaceBetween="2">
+    <ion-slide>
+      <ion-card>
+          <img src="assets/imgs/logo.png"/>
+          <div class="card-title">São Paulo</div>
+          <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          The British use the term "header", but the American.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          The British use the term "header", but the American term "head-shot" the English.
+
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+    <h2> <strong>Actualités</strong></h2>
+
+    <ion-slides card-slides slidesPerView="2.18" spaceBetween="2">
+      <ion-slide>
+        <ion-card>
+          <img src="assets/imgs/logo.png"/>
+          <div class="card-title">São Paulo</div>
+          <div class="card-subtitle">41 Listings</div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American term "head-shot" the English.
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <h2> <strong>Ecouter la bande son de votre choix</strong></h2>
+
+    <ion-slides card-slides slidesPerView="2.18" spaceBetween="2">
+      <ion-slide>
+        <ion-card>
+          <img src="assets/imgs/logo.png"/>
+          <div class="card-title">São Paulo</div>
+          <div class="card-subtitle">41 Listings</div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American term "head-shot" the English.
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
   <p *ngIf="auth.loading" text-center>Loading...</p>
   <ng-template [ngIf]="!auth.loading || !loggedIn">
     <div padding id="app-section" text-center>
@@ -22,16 +201,30 @@
   <ion-list>
     <!-- <ion-list-header>Hello {{auth.user?.name}}</ion-list-header> -->
     <ng-container *ngFor="let file of files; let i = index">
-      <ion-item text-wrap (click)="openFile(file, i)">
-        <ion-icon color="danger" item-start name="musical-note"></ion-icon>{{ file.name }}
-        <p item-end *ngIf="currentFile.index === i"></p>
-        <ion-icon item-end name="play" *ngIf="currentFile.index === i"></ion-icon>
+      <ion-item class="item item-thumbnail-left" menu-closes text-wrap (click)="openFile(file, i)">
+        <ion-grid>
+          <ion-row>
+            <ion-col width-25>
+          <img class="thumb" src="assets/imgs/cover.jpg">
+            </ion-col>
+            <ion-col style="color: #222">
+              {{ file.name }}
+              <h4><i>Culture II</i></h4>
+            </ion-col>
+            <ion-col text-right>
+              <p item-end *ngIf="currentFile.index === i"></p>
+              <ion-icon item-end color="dark" name="play" *ngIf="currentFile.index === i"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
       </ion-item>
     </ng-container>
   </ion-list>
 
+  </div>
 </ion-content>
-<ion-footer  *ngIf="currentFile.file" [@showHide]="displayFooter">
+<ion-footer  *ngIf="currentFile.file"  [@showHide]="displayFooter">
   <ion-toolbar color="hype">
     <ion-range min="1" color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)"
                name="seekbar">
@@ -44,22 +237,22 @@
     <ion-grid>
       <ion-row align-items-center id="media-controls">
         <button clear ion-col ion-button (click)="previous()">
-          <ion-icon class="icon ion-shuffle" color="light" name="shuffle"> </ion-icon>
+          <ion-icon class="icon ion-shuffle" color="dark" name="shuffle"> </ion-icon>
         </button>
         <button clear ion-col ion-button (click)="previous()">
-          <ion-icon color="light" name="skip-backward"> </ion-icon>
+          <ion-icon color="dark" name="skip-backward"> </ion-icon>
         </button>
         <button clear ion-col ion-button *ngIf="!state.playing" (click)="play()">
-          <ion-icon color="light" name="play"></ion-icon>
+          <ion-icon color="dark" name="play"></ion-icon>
         </button>
         <button clear ion-col ion-button *ngIf="!!state.playing" (click)="pause()">
-          <ion-icon color="light" name="pause"></ion-icon>
+          <ion-icon color="dark" name="pause"></ion-icon>
         </button>
         <button clear ion-col ion-button (click)="next()">
-          <ion-icon color="light" name="skip-forward"></ion-icon>
+          <ion-icon color="dark" name="skip-forward"></ion-icon>
         </button>
         <button clear ion-col ion-button (click)="onFinishedPlay()">
-          <ion-icon class="icon ion-sync" color="light" name="sync"></ion-icon>
+          <ion-icon class="icon ion-sync" color="dark" name="sync"></ion-icon>
         </button>
       </ion-row>
     </ion-grid>

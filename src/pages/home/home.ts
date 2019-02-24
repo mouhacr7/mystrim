@@ -71,6 +71,12 @@ export class HomePage {
     this.navCtrl.push(DialerPage);
   }
 
+  // swipe(event) {
+  //   if(event.direction === 2) {
+  //     this.navCtrl.parent.select(1);
+  //   }
+  // }
+
   getDocuments() {
     let loader = this.presentLoading();
     this.cloudProvider.getFiles().subscribe(files => {

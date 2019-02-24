@@ -16,14 +16,20 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthService } from '../providers/auth0/auth.service';
 import { IonicStorageModule } from '@ionic/storage';
-import { DialerPage } from './../pages/dialer/dialer';
+import { DialerPage } from '../pages/dialer/dialer';
 import { CallNumber } from '@ionic-native/call-number/ngx';
-
+import {StreamPage} from "../pages/stream/stream";
+import {ProfilePage} from "../pages/profile/profile";
+import { TabsPage } from '../pages/tabs/tabs';
 @NgModule({
   declarations: [
     MyApp, 
     HomePage,
-    DialerPage],
+    StreamPage,
+    ProfilePage,
+    DialerPage,
+    TabsPage
+  ],
 
   imports: [
     BrowserModule,
@@ -36,7 +42,14 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, DialerPage],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    DialerPage,
+    StreamPage,
+    ProfilePage,
+    TabsPage
+  ],
   providers: [
     StatusBar,
     SplashScreen,

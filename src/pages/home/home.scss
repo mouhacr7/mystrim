@@ -1,33 +1,93 @@
 page-home {
+  //ion-content {
+  //    @include linear-gradient(left,$clouds);
+  //    -webkit-background-size: cover;
+  //    -moz-background-size: cover;
+  //    background-size: cover;
+  //    color: #222;
+  //  }
+  //.thumb {
+  //  border-radius: 5px;
+  //}
+  /*
+	Some Styling for better card-feeling
+	 - Ensure same height for cards
+	 - add global padding is offset, so it's not cutted by ion-content and feels like infinity in the sides
+*/
+  .card-background-page {
 
-  #app-section {
-    #app-title {
-      color: color($colors, 'dark');
-      text-transform: uppercase;
+    ion-card {
+      position: relative;
+      text-align: center;
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover;
+
     }
-    #logo{
-      width: 70%;
-      margin-bottom: 20px;
-    }
-    #btn_playlist{
+    //s
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
       font-weight: bold;
-      color: color($colors, 'light');
-      background-color: color($colors, 'danger');
+      color: #fff;
     }
-    #btn_stream{
-      font-weight: bold;
-      color: color($colors, 'light');
-      background-color: color($colors, 'tertiary');
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
     }
-    ion-icon {
-      font-size: 15rem;
+
+  }
+
+  .card2 {
+    background-image: url('assets/imgs/hamzo_n.jpg');
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+
+  }
+
+  ion-slides[card-slides]{
+
+    height: auto;
+    margin-left: -$content-padding;
+    width: calc(100% + #{$content-padding*2});
+
+    .swiper-container {
+      padding-bottom: 30px;
+    }
+    .swiper-slide, .swiper-container, .swiper-wrapper {
+      height: auto;
+    }
+    .swiper-slide .slide-zoom, .swiper-slide .card {
+      height: 100%;
     }
   }
-  #media-controls {
+
+
+  /*
+      no Slider related stuff... just eye-candy
+  */
+  h2.with-button {
+    margin-top: 20px !important;
     button {
-      ion-icon {
-        font-size: 2.5rem;
-      }
+      bottom: 1px;
+      float: right;
+      font-size: 14px;
     }
+  }
+  .toolbar.toolbar-ios, .toolbar.toolbar-md {
+    .toolbar-background.toolbar-background-ios, .toolbar-background.toolbar-background-md {
+      box-shadow: inset 0 0 0 200px rgba(255,255,255,0.87);
+      backdrop-filter: blur(13px);
+      border-bottom: 0;
+    }
+    box-shadow: 0 1px 16px rgba(0,0,0,0.026);
   }
 }
