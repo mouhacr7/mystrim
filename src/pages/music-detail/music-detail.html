@@ -33,7 +33,7 @@
       <ion-item class="item item-thumbnail-left" menu-closes text-wrap (click)="openFile(file, i)">
         <ion-grid>
           <ion-row>
-            <ion-col width-25>
+            <ion-col width-20>
               <img style="border-radius: 6px" class="thumb" src="assets/imgs/cover.jpg">
             </ion-col>
             <ion-col color="white">
@@ -52,6 +52,19 @@
   </ion-list>
 </ion-content>
 <ion-footer  *ngIf="currentFile.file"  [@showHide]="displayFooter">
+  <div class='music-card playing'>
+
+    <div class='image'></div>
+
+    <div class='wave'></div>
+    <div class='wave'></div>
+    <div class='wave'></div>
+
+    <div class='info'>
+      <h2 class='title'>{{state.name}}</h2>
+      <div class='artist'>Culture</div>
+    </div>
+  </div>
   <ion-toolbar color="secondary">
     <ion-range min="1" color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)"
                name="seekbar">
