@@ -32,7 +32,7 @@ $app-direction: ltr;
 $colors: (
   tertiary: #346543,
   primary:    #488aff,
-  secondary:  #32db64,
+  secondary:  #28ce7c,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
@@ -61,7 +61,7 @@ $colors: (
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-$text-color:         black !default;
+$text-color:         white !default;
 $link-color:         color($colors, dark) !default;
 //$toolbar-background: transparent !default;
 
@@ -96,7 +96,7 @@ $link-color:         color($colors, dark) !default;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";  // /node_modules/ionic-angular/themes/ionic.theme.default.scss
+@import "ionic.theme.dark.md";  // /node_modules/ionic-angular/themes/ionic.theme.default.scss
 
 @import "./green-and-blue-theme";
 @import "./facebook-messenger-theme";

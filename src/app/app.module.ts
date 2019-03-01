@@ -21,6 +21,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 import {StreamPage} from "../pages/stream/stream";
 import {ProfilePage} from "../pages/profile/profile";
 import { TabsPage } from '../pages/tabs/tabs';
+import {MusicDetailPage} from "../pages/music-detail/music-detail";
 @NgModule({
   declarations: [
     MyApp, 
@@ -28,7 +29,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     StreamPage,
     ProfilePage,
     DialerPage,
-    TabsPage
+    TabsPage,
+    MusicDetailPage
   ],
 
   imports: [
@@ -48,7 +50,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     DialerPage,
     StreamPage,
     ProfilePage,
-    TabsPage
+    TabsPage,
+    MusicDetailPage
   ],
   providers: [
     StatusBar,

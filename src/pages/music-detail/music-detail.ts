@@ -8,13 +8,16 @@ import {Store} from '@ngrx/store';
 import {CloudProvider} from '../../providers/cloud/cloud';
 import {AuthService} from '../../providers/auth0/auth.service';
 import {pluck, filter, map, distinctUntilChanged} from 'rxjs/operators';
-import { DialerPage } from '../dialer/dialer';
-import {MusicDetailPage} from "../music-detail/music-detail";
-
+/**
+ * Generated class for the MusicDetailPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-music-detail',
+  templateUrl: 'music-detail.html',
   animations: [
     trigger('showHide', [
       state(
@@ -34,7 +37,7 @@ import {MusicDetailPage} from "../music-detail/music-detail";
     ])
   ]
 })
-export class HomePage {
+export class MusicDetailPage {
   files: any = [];
   durationSec: any;
   seekbar: FormControl = new FormControl("seekbar");
@@ -55,36 +58,12 @@ export class HomePage {
     private store: Store<any>,
     public auth: AuthService
   ) {
-    this.auth.isLoggedIn$.subscribe((isLoggedIn: any) => {
-      this.loggedIn = isLoggedIn;
-      if (isLoggedIn) {
-        this.getDocuments();
-      }
-    });
-
+    this.getDocuments();
   }
 
-  login() {
-    this.auth.login()
-      .then(() => { console.log('Successful Login'); })
-      .catch(error => { console.log(error); });
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad MusicDetailPage');
   }
-  goDialer(){
-    this.navCtrl.push(DialerPage);
-  }
-
-  // swipe(event) {
-  //   if(event.direction === 2) {
-  //     this.navCtrl.parent.select(1);
-  //   }
-  // }
-
-
-  nowPlaying() {
-    this.navCtrl.push(MusicDetailPage);
-
-  }
-
   getDocuments() {
     let loader = this.presentLoading();
     this.cloudProvider.getFiles().subscribe(files => {
@@ -101,7 +80,7 @@ export class HomePage {
     return loading;
   }
 
-  ionViewWillLoad() { 
+  ionViewWillLoad() {
     this.store.select('appState').subscribe((value: any) => {
       this.state = value.media;
     });
@@ -222,7 +201,7 @@ export class HomePage {
   isLastPlaying() {
     return this.currentFile.index === this.files.length - 1;
   }
-   onFinishedPlay(){
+  onFinishedPlay(){
     if(!this.state.playing && this.state.time == this.state.duration){
       this.next();
     }
