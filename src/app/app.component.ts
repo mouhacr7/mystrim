@@ -15,7 +15,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       statusBar.styleDefault();
-      splashScreen.hide();
+      //splashScreen.hide();
 
       // Redirect back to app after authenticating
       (window as any).handleOpenURL = (url: string) => {

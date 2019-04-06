@@ -21,9 +21,7 @@ export class DialerPage {
   }
 
   operatorSelect(operator){
-    if(operator=="dialog"){
-      this.startNo='*130#';
-    }else if(operator=="mauritel"){
+    if(operator=="mauritel"){
       this.startNo='*123*';
     }else if(operator=="mattel"){
       this.startNo='*133*';
@@ -32,9 +30,25 @@ export class DialerPage {
     }
   }
 
+  compte_mauritel() {
+   return this.callNumber.callNumber("#123#", true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
+  }
+  compte_mattel() {
+    return this.callNumber.callNumber("#123#", true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
+  }
+  compte_chinguitel() {
+    return this.callNumber.callNumber("#123#", true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
+  }
+
   recharge(){
     this.finalVal=this.startNo+this.inputNo+this.endNo;
-    this.callNumber.callNumber(this.finalVal, true)
+    return this.callNumber.callNumber(this.finalVal, true)
     .then(() => console.log('Launched dialer!'))
     .catch(() => console.log('Error launching dialer'));
   }

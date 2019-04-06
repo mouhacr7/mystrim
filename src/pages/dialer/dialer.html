@@ -1,12 +1,19 @@
 <ion-content padding>
   <img src="assets/imgs/logo.png" width="30%" class="logo">
-  <h3 class="format" class="titleh3">Select the Mobile Operator</h3>
+  <h3 class="format" class="titleh3">Selectionne ton operateur mobile</h3>
   <br>
+
+    <div padding id="app-section" text-center>
+    <button ion-button block color="secondary" (click)="compte_mauritel()">Compte mauritel</button>
+    <button ion-button block color="danger" (click)="compte_mattel()">Compte mattel</button>
+    <button ion-button block color="primary" (click)="compte_chinguitel()">Compte chinguitel</button>
+    <!-- <a href="tel:*222#" class="button button-positive">Call me? </a> -->
+    </div>
+
   <ion-list radio-group [(ngModel)]="relationship">
-    <ion-item class="item item-trns text-center">
-      <ion-label>Dialog</ion-label>
-      <ion-radio value="dialog" id="dialog" (click)="operatorSelect('dialog')" checked ></ion-radio>
-    </ion-item>
+    <ion-item-divider color="secondary">
+      Pour recharger son compte
+    </ion-item-divider>
     <ion-item class="item item-trns text-center">
       <ion-label>Mauritel</ion-label>
       <ion-radio value="mauritel" id="mauritel" (click)="operatorSelect('mauritel')"></ion-radio>

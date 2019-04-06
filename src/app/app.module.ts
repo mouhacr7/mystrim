@@ -22,6 +22,8 @@ import {StreamPage} from "../pages/stream/stream";
 import {ProfilePage} from "../pages/profile/profile";
 import { TabsPage } from '../pages/tabs/tabs';
 import {MusicDetailPage} from "../pages/music-detail/music-detail";
+
+
 @NgModule({
   declarations: [
     MyApp, 

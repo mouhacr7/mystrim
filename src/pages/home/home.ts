@@ -46,6 +46,9 @@ export class HomePage {
   @ViewChild(Navbar) navBar: Navbar;
   @ViewChild(Content) content: Content;
 
+  slideOpts = {
+    effect: 'flip'
+  };
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -63,15 +66,15 @@ export class HomePage {
     });
 
   }
-
-  login() {
-    this.auth.login()
-      .then(() => { console.log('Successful Login'); })
-      .catch(error => { console.log(error); });
-  }
-  goDialer(){
-    this.navCtrl.push(DialerPage);
-  }
+  //
+  // login() {
+  //   this.auth.login()
+  //     .then(() => { console.log('Successful Login'); })
+  //     .catch(error => { console.log(error); });
+  // }
+  // goDialer(){
+  //   this.navCtrl.push(DialerPage);
+  // }
 
   // swipe(event) {
   //   if(event.direction === 2) {
@@ -222,10 +225,10 @@ export class HomePage {
   isLastPlaying() {
     return this.currentFile.index === this.files.length - 1;
   }
-   onFinishedPlay(){
-    if(!this.state.playing && this.state.time == this.state.duration){
-      this.next();
-    }
+   onFinishedPlay($event){
+     if ($event && !this.state.playing && this.state.time == this.state.duration) {
+         this.next();
+}
   }
 
   onSeekStart() {

@@ -40,6 +40,7 @@ import {pluck, filter, map, distinctUntilChanged} from 'rxjs/operators';
 export class MusicDetailPage {
   files: any = [];
   durationSec: any;
+  loop: boolean = true;
   seekbar: FormControl = new FormControl("seekbar");
   state: any = {};
   onSeekState: boolean;
@@ -201,6 +202,14 @@ export class MusicDetailPage {
   isLastPlaying() {
     return this.currentFile.index === this.files.length - 1;
   }
+
+  change() {
+    console.log(this.loop)
+  }
+  toogleLoo() {
+
+  }
+
   onFinishedPlay(){
     if(!this.state.playing && this.state.time == this.state.duration){
       this.next();

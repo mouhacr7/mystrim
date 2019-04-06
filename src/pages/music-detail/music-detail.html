@@ -16,7 +16,9 @@
 <ion-content padding>
   <div class='music-card playing'>
 
-    <div class='image'></div>
+    <div class='image'>
+      <!--<img src="assets/imgs/cover.jpg">-->
+    </div>
 
     <div class='wave'></div>
     <div class='wave'></div>
@@ -28,13 +30,14 @@
     </div>
   </div>
   <ion-list>
+
     <!-- <ion-list-header>Hello {{auth.user?.name}}</ion-list-header> -->
     <ng-container *ngFor="let file of files; let i = index">
       <ion-item class="item item-thumbnail-left" menu-closes text-wrap (click)="openFile(file, i)">
         <ion-grid>
           <ion-row>
-            <ion-col width-20>
-              <img style="border-radius: 6px" class="thumb" src="assets/imgs/cover.jpg">
+            <ion-col width-25>
+              <img class="thumb" src="assets/imgs/cover.jpg">
             </ion-col>
             <ion-col color="white">
               {{ file.name }}
@@ -52,48 +55,40 @@
   </ion-list>
 </ion-content>
 <ion-footer  *ngIf="currentFile.file"  [@showHide]="displayFooter">
-  <div class='music-card playing'>
-
-    <div class='image'></div>
-
-    <div class='wave'></div>
-    <div class='wave'></div>
-    <div class='wave'></div>
-
-    <div class='info'>
-      <h2 class='title'>{{state.name}}</h2>
-      <div class='artist'>Culture</div>
-    </div>
-  </div>
   <ion-toolbar color="secondary">
-    <ion-range min="1" color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)"
+    <ion-range min="1" disabled color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)"
                name="seekbar">
       <ion-label color="light" range-left>{{ state.time }}</ion-label>
       <ion-label color="light" range-right>{{ state.duration }}</ion-label>
     </ion-range>
   </ion-toolbar>
 
-  <ion-toolbar color="dark" padding>
+  <ion-toolbar color="light" padding>
     <ion-grid>
       <ion-row align-items-center id="media-controls">
+        <!--<button clear ion-col ion-button (click)="previous()">-->
+          <!--<ion-icon class="icon ion-shuffle" color="light" name="shuffle"> </ion-icon>-->
+        <!--</button>-->
         <button clear ion-col ion-button (click)="previous()">
-          <ion-icon class="icon ion-shuffle" color="light" name="shuffle"> </ion-icon>
-        </button>
-        <button clear ion-col ion-button (click)="previous()">
-          <ion-icon color="light" name="skip-backward"> </ion-icon>
+          <!--<ion-icon color="light" name="skip-backward"> </ion-icon>-->
+          <img class="thumb" width="36px" src="assets/icon/previous.svg">
         </button>
         <button clear ion-col ion-button *ngIf="!state.playing" (click)="play()">
-          <ion-icon color="light" name="play"></ion-icon>
+          <!--<ion-icon color="light" name="play"></ion-icon>-->
+          <img class="thumb" width="36px" src="assets/icon/play.svg">
         </button>
         <button clear ion-col ion-button *ngIf="!!state.playing" (click)="pause()">
-          <ion-icon color="light" name="pause"></ion-icon>
+          <!--<ion-icon color="light" name="pause"></ion-icon>-->
+          <img class="thumb" width="36px" src="assets/icon/pause.svg">
         </button>
         <button clear ion-col ion-button (click)="next()">
-          <ion-icon color="light" name="skip-forward"></ion-icon>
+          <!--<ion-icon color="light" name="skip-forward"></ion-icon>-->
+          <img class="thumb" width="36px" src="assets/icon/next.svg">
         </button>
-        <button clear ion-col ion-button (click)="onFinishedPlay()">
-          <ion-icon class="icon ion-sync" color="light" name="sync"></ion-icon>
-        </button>
+        <!--<button clear ion-col ion-button (ionChange)="change(this.loop)" >-->
+          <!--<ion-icon class="icon ion-sync" *ngIf="this.loop" color="light" name="sync"></ion-icon>-->
+          <!--<ion-icon class="icon ion-sync" *ngIf="!this.loop" color="dark" name="sync"></ion-icon>-->
+        <!--</button>-->
       </ion-row>
     </ion-grid>
   </ion-toolbar>
