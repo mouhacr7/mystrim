@@ -16,6 +16,90 @@ page-home {
   .slide {
     height: 50%;
   }
+
+  @keyframes wave {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .music-card {
+    margin: auto;
+    background: hsl(0, 0%, 10%);
+    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    overflow: hidden;
+    position: relative;
+    // width: 300px;
+    // height: 400px;
+    border-radius: 6px;
+  }
+
+  .image {
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.6;
+    // height: 300px;
+    // width: 300px;
+  }
+
+  .img-wd {
+     height: 300px;
+    width: 300px;
+  }
+
+  .image:after {
+    height: 100px;
+    content: '';
+    top: 200px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(rgba(9, 2, 4, 0), #444);
+  }
+
+  .wave {
+    position: absolute;
+    height: 750px;
+    width: 750px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -70%;
+    // margin-top: -130%;
+    background: radial-gradient(#b14cb9, #383737);
+  }
+
+  .wave:nth-child(2),
+  .wave:nth-child(3) {
+    top: 10px;
+  }
+
+  .playing .wave {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+  }
+  /* when stop */
+  .wave {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+  }
+
+  .playing .wave:nth-child(2) {
+    animation-duration: 4000ms;
+  }
+  /* when stop */
+  .wave:nth-child(2) {
+    animation-duration: 50s;
+  }
+
+  .playing .wave:nth-child(3) {
+    animation-duration: 5000ms;
+  }
+  /* when stop */
+  .wave:nth-child(3) {
+    animation-duration: 45s;
+  }
+
   //ion-content {
   //    @include linear-gradient(left,$clouds);
   //    -webkit-background-size: cover;
@@ -72,7 +156,7 @@ page-home {
       padding-bottom: 30px;
     }
     .swiper-slide, .swiper-container, .swiper-wrapper {
-      height: auto;
+      // height: auto;
     }
     .swiper-slide .slide-zoom, .swiper-slide .card {
       height: 100%;
@@ -101,6 +185,6 @@ page-home {
   }
 
   ion-footer {
-
+    bottom : 50px !important;
   }
 }

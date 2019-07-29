@@ -8,6 +8,8 @@ import {Store} from '@ngrx/store';
 import {CloudProvider} from '../../providers/cloud/cloud';
 import {AuthService} from '../../providers/auth0/auth.service';
 import {pluck, filter, map, distinctUntilChanged} from 'rxjs/operators';
+import * as mm from 'music-metadata';
+import * as util from 'util';
 /**
  * Generated class for the MusicDetailPage page.
  *
@@ -61,17 +63,26 @@ export class MusicDetailPage {
   ) {
     this.getDocuments();
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MusicDetailPage');
-  }
+  
   getDocuments() {
-    let loader = this.presentLoading();
+    //let loader = this.presentLoading();
     this.cloudProvider.getFiles().subscribe(files => {
       this.files = files;
-      loader.dismiss();
+      console.log(files)
+      if (files) {
+        return mm.parseFile(files).then(metadata => {
+          // Do great things with the metadata
+          return files; // process rest of the files AFTER we are finished
+        })
+      }
+      
+      return Promise.resolve();
+     // loader.dismiss();
     });
+
+   
   }
+ 
 
   presentLoading() {
     let loading = this.loadingCtrl.create({

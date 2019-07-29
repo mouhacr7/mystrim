@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
-import { CallNumber } from '@ionic-native/call-number/ngx';
-import { NavController, NavParams } from "ionic-angular";
+import { CallNumber } from '@ionic-native/call-number';
  
 @Component({
   selector: 'page-dialer',
@@ -13,7 +12,7 @@ export class DialerPage {
   finalVal:string;
   relationship:string;
   
-  constructor(public navCtrl: NavController, private callNumber: CallNumber, public navParams: NavParams) {
+  constructor(private callNumber: CallNumber) {
   }
 
   ionViewDidLoad() {
@@ -30,27 +29,43 @@ export class DialerPage {
     }
   }
 
-  compte_mauritel() {
-   return this.callNumber.callNumber("#123#", true)
-      .then(() => console.log('Launched dialer!'))
-      .catch(() => console.log('Error launching dialer'));
+  cptMauritel() {
+    this.callNumber.callNumber("#123#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(res => console.log('Error launching dialer', res));
   }
-  compte_mattel() {
-    return this.callNumber.callNumber("#123#", true)
-      .then(() => console.log('Launched dialer!'))
-      .catch(() => console.log('Error launching dialer'));
+  min10Mattel() {
+    this.callNumber.callNumber("*167*1#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(res => console.log('Error launching dialer', res));
   }
-  compte_chinguitel() {
-    return this.callNumber.callNumber("#123#", true)
-      .then(() => console.log('Launched dialer!'))
-      .catch(() => console.log('Error launching dialer'));
+  min20Mattel() {
+    this.callNumber.callNumber("*167*2#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(res => console.log('Error launching dialer', res));
+  }
+  min30Mattel() {
+    this.callNumber.callNumber("*167*3#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(res => console.log('Error launching dialer', res));
+  }
+
+  cptMattel() {
+    this.callNumber.callNumber("*130#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(res => console.log('Error launching dialer', res));
+  }
+  cptChinguitel() {
+    this.callNumber.callNumber("*222#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(res => console.log('Error launching dialer', res));
   }
 
   recharge(){
-    this.finalVal=this.startNo+this.inputNo+this.endNo;
-    return this.callNumber.callNumber(this.finalVal, true)
-    .then(() => console.log('Launched dialer!'))
-    .catch(() => console.log('Error launching dialer'));
+    this.finalVal = this.startNo+this.inputNo+this.endNo;
+    this.callNumber.callNumber(this.finalVal, true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(res => console.log('Error launching dialer', res));
   }
 
 }

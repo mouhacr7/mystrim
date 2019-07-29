@@ -17,7 +17,7 @@
   <div class='music-card playing'>
 
     <div class='image'>
-      <!--<img src="assets/imgs/cover.jpg">-->
+      <img class="img-wd" src="assets/imgs/Folder.jpg">
     </div>
 
     <div class='wave'></div>
@@ -25,12 +25,11 @@
     <div class='wave'></div>
 
     <div class='info'>
-      <h2 class='title'>Anomaly</h2>
-      <div class='artist'>Lecrae</div>
+      <h2 class='title'>Kaos</h2>
+      <div class='artist'>Kalash</div>
     </div>
   </div>
   <ion-list>
-
     <!-- <ion-list-header>Hello {{auth.user?.name}}</ion-list-header> -->
     <ng-container *ngFor="let file of files; let i = index">
       <ion-item class="item item-thumbnail-left" menu-closes text-wrap (click)="openFile(file, i)">
@@ -54,7 +53,7 @@
     </ng-container>
   </ion-list>
 </ion-content>
-<ion-footer  *ngIf="currentFile.file"  [@showHide]="displayFooter">
+<ion-footer  *ngIf="currentFile.file || true"  [@showHide]="displayFooter">
   <ion-toolbar color="secondary">
     <ion-range min="1" disabled color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)"
                name="seekbar">

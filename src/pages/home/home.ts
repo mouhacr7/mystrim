@@ -49,6 +49,7 @@ export class HomePage {
   slideOpts = {
     effect: 'flip'
   };
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -58,12 +59,13 @@ export class HomePage {
     private store: Store<any>,
     public auth: AuthService
   ) {
-    this.auth.isLoggedIn$.subscribe((isLoggedIn: any) => {
-      this.loggedIn = isLoggedIn;
-      if (isLoggedIn) {
-        this.getDocuments();
-      }
-    });
+    // this.auth.isLoggedIn$.subscribe((isLoggedIn: any) => {
+    //   this.loggedIn = isLoggedIn;
+    //   if (isLoggedIn) {
+    //     this.getDocuments();
+    //   }
+    // });
+    this.getDocuments();
 
   }
   //
@@ -83,26 +85,25 @@ export class HomePage {
   // }
 
 
-  nowPlaying() {
+    nowPlaying() {
     this.navCtrl.push(MusicDetailPage);
-
   }
 
   getDocuments() {
-    let loader = this.presentLoading();
+    // let loader = this.presentLoading();
     this.cloudProvider.getFiles().subscribe(files => {
       this.files = files;
-      loader.dismiss();
+      // loader.dismiss();
     });
   }
 
-  presentLoading() {
-    let loading = this.loadingCtrl.create({
-      content: 'Loading Content. Please Wait...'
-    });
-    loading.present();
-    return loading;
-  }
+  // presentLoading() {
+  //   let loading = this.loadingCtrl.create({
+  //     content: 'Loading Content. Please Wait...'
+  //   });
+  //   loading.present();
+  //   return loading;
+  // }
 
   ionViewWillLoad() { 
     this.store.select('appState').subscribe((value: any) => {

@@ -1,23 +1,66 @@
 <!--
-  Generated template for the StreamPage page.
+  Generated template for the MusicDetailPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>stream</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <ion-icon class="iconFloatLeft" color="white" name="heart"></ion-icon>
+              </ion-col>
+              
+              <ion-col col-6>
+                <ion-icon class="iconFloatRight" color="white" name="share"></ion-icon>
+                </ion-col>
+            </ion-row>
+          </ion-grid>
+  
+    </ion-navbar>
 </ion-header>
+  
 
+  <ion-content padding>
 
-<ion-content padding>
-  <div class="main-content">
-    <h2>About This Example</h2>
-    <p>
-      This is just a little example that might be unuseful for you, sorry if that's make you happy.
-    </p>
-  </div>
-</ion-content>
+     
+    <div class='music-card playing'>
+  
+      <div class='image'>
+        <img class="img-wd" src="assets/imgs/postMalone.jpg">
+      </div>
+  
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+  
+      <div class='info'>
+        <h2 class='title'>beerbongs & bentleys</h2>
+        <div class='artist'>Post Malone</div>
+      </div>
+    </div>
+
+    <ion-toolbar class="toolbarBack">
+        <ion-range min="1" disabled color="dark" name="seekbar">
+        <!-- <ion-range min="1" disabled color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)" -->
+                   name="seekbar">
+          <ion-label color="light" range-left>1:47</ion-label>
+          <ion-label color="light" range-right>4:04</ion-label>
+          <!-- <ion-label color="light" range-left>{{ state.time }}</ion-label>
+          <ion-label color="light" range-right>{{ state.duration }}</ion-label> -->
+        </ion-range>
+      </ion-toolbar>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+          </ion-col>
+          
+          <ion-col col-6>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+
+  

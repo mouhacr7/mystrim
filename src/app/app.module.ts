@@ -17,7 +17,7 @@ import { HomePage } from '../pages/home/home';
 import { AuthService } from '../providers/auth0/auth.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { DialerPage } from '../pages/dialer/dialer';
-import { CallNumber } from '@ionic-native/call-number/ngx';
+import { CallNumber } from '@ionic-native/call-number';
 import {StreamPage} from "../pages/stream/stream";
 import {ProfilePage} from "../pages/profile/profile";
 import { TabsPage } from '../pages/tabs/tabs';

@@ -8,137 +8,159 @@
 
 <ion-content fullscreen padding class="card-background-page">
   <div class="main-content">
-    <ion-slides class="slide" pager="true">
+    <ion-slides class="slide" pager="true" >
       <ion-slide>
         <ion-card>
-          <img src="assets/imgs/mozbi.jpg">
+          <div class='music-card playing'>  
+            <img src="assets/imgs/mozbi.jpg">
+          </div>
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <img src="assets/imgs/mozbi.jpg">
-        </ion-card>
+          <ion-card>
+              <div class='music-card playing'>  
+                <img src="assets/imgs/mozbi.jpg">
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <img src="assets/imgs/mozbi.jpg">
-        </ion-card>
+          <ion-card>
+              <div class='music-card playing'>  
+                <img src="assets/imgs/mozbi.jpg">
+              </div>
+            </ion-card>
       </ion-slide>
     </ion-slides>
-
-  <h2 class="with-button">Decouvez les nouveautés des artistes mauritaniens</h2>
-  <ion-slides card-slides slidesPerView="2.18s" spaceBetween="10" class="card-background-page">
-    <ion-slide>
-      <ion-card class="card1">
-        <img src="assets/imgs/mozbi.jpg">
-        <div class="card-title">Rap</div>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card class="card2">
-        <img src="assets/imgs/el_general.jpg">
-        <div class="card-title">Hip hop</div>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card>
-        <img class="card1" src="assets/imgs/taleb.jpeg">
-        <div class="card-title">Reggae</div>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card class="card1">
-        <img src="assets/imgs/tonia.jpg">
-        <div class="card-title">Hits</div>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card class="card1">
-        <img src="assets/imgs/adviser2.png">
-        <div class="card-title">Variétés</div>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+   
+        <h2 class="with-button">Decouvez les nouveautés des artistes mauritaniens</h2>
+        <ion-slides card-slides slidesPerView="2.18s" spaceBetween="10" class="card-background-page">
+            <ng-container *ngFor="let file of files; let i = index">
+          <ion-slide  (click)="openFile(file, i)">
+            <ion-card  class="music-card palying">
+            <div class='music-card playing'>     
+              <img src="assets/imgs/Folder.jpg">
+               <div class="card-title">{{ file.name }}</div>
+                     
+                <div *ngIf="currentFile.index === i" class='wave'></div>
+                <div *ngIf="currentFile.index === i" class='wave'></div>
+                <div *ngIf="currentFile.index === i" class='wave'></div>
+              </div>
+            </ion-card>
+          </ion-slide>
+        </ng-container>
+          <!-- <ion-slide>
+            <ion-card class="card2">
+              <img src="assets/imgs/el_general.jpg">
+              <div class="card-title">Hip hop</div>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+              <img class="card1" src="assets/imgs/taleb.jpeg">
+              <div class="card-title">Reggae</div>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card class="card1">
+              <img src="assets/imgs/tonia.jpg">
+              <div class="card-title">Hits</div>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card class="card1">
+              <img src="assets/imgs/adviser2.png">
+              <div class="card-title">Variétés</div>
+            </ion-card>
+          </ion-slide> -->
+        </ion-slides>
 
     <h2> <strong>Parcourir</strong></h2>
      <p>Explorez tous les styles et tous ambiances</p>
     <ion-slides card-slides slidesPerView="2.18" spaceBetween="2">
     <ion-slide>
       <ion-card (click)="getDocuments()">
-          <img src="assets/imgs/beats_logo.png"/>
-          <div class="card-title">Teaser</div>
+          <div class='music-card playing'>
+            <img src="assets/imgs/beats_logo.png"/>
+            <div class="card-title">Teaser</div>
+          </div>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card>
-        <ion-card-content>
-          The British use the term "header", but the American.
-        </ion-card-content>
-      </ion-card>
+        <ion-card (click)="getDocuments()">
+            <div class='music-card playing'>
+              <img src="assets/imgs/beats_logo.png"/>
+              <div class="card-title">Teaser</div>
+            </div>
+        </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card>
-        <ion-card-content>
-          The British use the term "header", but the American term "head-shot" the English.
-
-        </ion-card-content>
-      </ion-card>
+        <ion-card (click)="getDocuments()">
+            <div class='music-card playing'>
+              <img src="assets/imgs/beats_logo.png"/>
+              <div class="card-title">Teaser</div>
+            </div>
+        </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card>
-        <ion-card-content>
-          The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-
-        </ion-card-content>
-      </ion-card>
+        <ion-card (click)="getDocuments()">
+            <div class='music-card playing'>
+              <img src="assets/imgs/beats_logo.png"/>
+              <div class="card-title">Teaser</div>
+            </div>
+        </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card>
-        <ion-card-content>
-          The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-        </ion-card-content>
-      </ion-card>
+        <ion-card (click)="getDocuments()">
+            <div class='music-card playing'>
+              <img src="assets/imgs/beats_logo.png"/>
+              <div class="card-title">Teaser</div>
+            </div>
+        </ion-card>
     </ion-slide>
   </ion-slides>
 
     <h2> <strong>Actualités</strong></h2>
      <p>Suivez les actualités de vos artistes préférés</p>
     <ion-slides card-slides slidesPerView="2.18" spaceBetween="2">
-      <ion-slide>
+      <ion-slide>   
         <ion-card (click)="nowPlaying()">
-          <img src="assets/imgs/beats_logo.png"/>
-          <div class="card-title">Top hits</div>
+          <div class='music-card playing'>
+            <img src="assets/imgs/beats_logo.png"/>
+            <div class="card-title">Top hits</div>
+          </div>
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American.
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English.
-
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
     </ion-slides>
 
@@ -146,40 +168,44 @@
     <p>Decouvrez la playlist en streaming</p>
     <ion-slides card-slides slidesPerView="2.18" spaceBetween="2">
       <ion-slide>
-        <ion-card>
-          <img src="assets/imgs/beats_logo.png"/>
-          <div class="card-title">Radio</div>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American.
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English.
-
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
-          <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-          </ion-card-content>
-        </ion-card>
+          <ion-card (click)="nowPlaying()">
+              <div class='music-card playing'>
+                <img src="assets/imgs/beats_logo.png"/>
+                <div class="card-title">Top hits</div>
+              </div>
+            </ion-card>
       </ion-slide>
     </ion-slides>
 
@@ -210,7 +236,7 @@
 
   </div>
 </ion-content>
-<ion-footer  *ngIf="currentFile.file"  [@showHide]="displayFooter">
+<ion-footer  *ngIf="currentFile.file || true"  [@showHide]="displayFooter">
   <ion-toolbar color="secondary">
     <ion-range min="1" color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)"
                name="seekbar">
@@ -218,7 +244,7 @@
       <ion-label color="light" range-right>{{ state.duration }}</ion-label>
     </ion-range>
   </ion-toolbar>
-  <ion-toolbar padding>
+  <ion-toolbar color="light" padding>
     <ion-grid>
       <ion-row align-items-center id="media-controls">
         <!--<button clear ion-col ion-button (click)="previous()">-->
