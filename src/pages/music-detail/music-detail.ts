@@ -68,21 +68,12 @@ export class MusicDetailPage {
     //let loader = this.presentLoading();
     this.cloudProvider.getFiles().subscribe(files => {
       this.files = files;
-      console.log(files)
-      if (files) {
-        return mm.parseFile(files).then(metadata => {
-          // Do great things with the metadata
-          return files; // process rest of the files AFTER we are finished
-        })
-      }
-      
-      return Promise.resolve();
-     // loader.dismiss();
-    });
+      // console.log(this.files)
+       //create a new parser from a node ReadStream
 
+    });
    
   }
- 
 
   presentLoading() {
     let loading = this.loadingCtrl.create({

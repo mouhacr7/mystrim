@@ -8,8 +8,7 @@ import {Store} from '@ngrx/store';
 import {CloudProvider} from '../../providers/cloud/cloud';
 import {AuthService} from '../../providers/auth0/auth.service';
 import {pluck, filter, map, distinctUntilChanged} from 'rxjs/operators';
-import { DialerPage } from '../dialer/dialer';
-import {MusicDetailPage} from "../music-detail/music-detail";
+import { IonPullUpFooterState} from 'ionic-pullup';
 
 
 @Component({
@@ -35,7 +34,11 @@ import {MusicDetailPage} from "../music-detail/music-detail";
   ]
 })
 export class HomePage {
+  drawerOptions: any;
+  footerState: IonPullUpFooterState;
   files: any = [];
+  slides: any = [];
+  albums: any = [];
   durationSec: any;
   seekbar: FormControl = new FormControl("seekbar");
   state: any = {};
@@ -48,7 +51,8 @@ export class HomePage {
 
   slideOpts = {
     effect: 'flip'
-  };
+  };  
+  // public albums:Observable<Artist[]> 
 
   constructor(
     public navCtrl: NavController,
@@ -58,42 +62,54 @@ export class HomePage {
     public cloudProvider: CloudProvider,
     private store: Store<any>,
     public auth: AuthService
-  ) {
-    // this.auth.isLoggedIn$.subscribe((isLoggedIn: any) => {
-    //   this.loggedIn = isLoggedIn;
-    //   if (isLoggedIn) {
-    //     this.getDocuments();
-    //   }
-    // });
+  ) 
+  {
+    this.footerState = IonPullUpFooterState.Collapsed;
     this.getDocuments();
-
+    this.getAlbums();
+    this.getSlides();
+  
   }
-  //
-  // login() {
-  //   this.auth.login()
-  //     .then(() => { console.log('Successful Login'); })
-  //     .catch(error => { console.log(error); });
-  // }
-  // goDialer(){
-  //   this.navCtrl.push(DialerPage);
-  // }
 
-  // swipe(event) {
-  //   if(event.direction === 2) {
-  //     this.navCtrl.parent.select(1);
-  //   }
-  // }
-
-
-    nowPlaying() {
-    this.navCtrl.push(MusicDetailPage);
-  }
 
   getDocuments() {
     // let loader = this.presentLoading();
     this.cloudProvider.getFiles().subscribe(files => {
       this.files = files;
+      console.log(files);
       // loader.dismiss();
+    });
+  }
+
+  footerExpanded() {
+    console.log('Footer expanded!');
+  }
+
+  footerCollapsed() {
+    console.log('Footer collapsed!');
+  }
+
+  toggleFooter() {
+    this.footerState = this.footerState == IonPullUpFooterState.Collapsed ? IonPullUpFooterState.Expanded : IonPullUpFooterState.Collapsed;
+  }
+
+  getAlbums() {
+    //let loader = this.presentLoading();
+    this.cloudProvider.getArtistAlbums().subscribe(albums => {
+      this.albums = albums;
+      console.log(this.albums)
+       //create a new parser from a node ReadStream
+      
+    });
+  }
+
+  getSlides() {
+    //let loader = this.presentLoading();
+    this.cloudProvider.getSlides().subscribe(slides => {
+      this.slides = slides;
+      console.log(this.slides)
+       //create a new parser from a node ReadStream
+      
     });
   }
 

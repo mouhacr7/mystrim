@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import {NavController, NavParams } from 'ionic-angular';
-import * as mm from 'music-metadata';
-import * as util from 'util';
- 
-
-
+import { Component, AfterViewInit } from '@angular/core';
+import { NavController} from 'ionic-angular';
+import { Genre } from '../../app/globals/genre';
+import { Observable } from 'rxjs/Observable';
+import "rxjs/add/observable/of";
+import { genres } from '../../app/globals/constants'
 /**
  * Generated class for the StreamPage page.
  *
@@ -15,26 +14,21 @@ import * as util from 'util';
   selector: 'page-stream',
   templateUrl: 'stream.html',
 })
-export class StreamPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-   this.metadatas();
+
+export class StreamPage implements AfterViewInit{
+
+  public genres:Observable<Genre[]>
+  constructor(public navCtrl: NavController) {
+
   }
 
-  metadatas() {
-    return mm.parseFile('assets/music/Kalash - snitch feat lacrim.mp3')
-    .then(  metadata => {
-      console.log(util.inspect(metadata, {showHidden: false, depth: null}))
-    })
-    .catch((err) => {
-      console.error(err.message);
-    });
+  ngAfterViewInit(){
+    this.genres = Observable.of(genres)
+  
   }
 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StreamPage');
+  browseGenre(genre:Genre){
+    this.navCtrl.push("GenreBrowserPage",genre,{direction:'top',updateUrl:false})
   }
-
-
 }

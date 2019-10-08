@@ -18,20 +18,6 @@ export class TabsPage {
   loaded:   boolean = false;
   tabIndex: number  = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) { 
   }
-
-
-  // private getAnimationDirection(index):string {
-  //   var currentIndex = this.tabIndex;
-  //
-  //   this.tabIndex = index;
-  //
-  //   switch (true){
-  //     case (currentIndex < index):
-  //       return('left');
-  //     case (currentIndex > index):
-  //       return ('right');
-  //   }
-  // }
 }

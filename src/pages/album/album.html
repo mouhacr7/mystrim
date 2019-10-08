@@ -1,0 +1,154 @@
+  <ion-header no-border>
+    <ion-navbar>
+      <ion-title>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>        
+    <div class='music-card playing'>
+     <ion-grid class="card-background-page">
+              <ion-row>
+                  <ion-col col-6 class="card-background-page">
+                      <ion-card  class="music-card palying">
+                          <div class='music-card playing'>     
+                            <img src={{_album.getCover()}}>
+                          </div>
+                     </ion-card>
+                  </ion-col>
+                  <ion-col col-6 class="card-background-page">
+                    <div class='info'>
+                      <div class='title'>{{_album.getTitre()}}</div>
+                      <div class='artist'>{{_album.getArtist()}}</div>
+                    </div>
+                  </ion-col>
+              </ion-row>
+      </ion-grid>
+      <ion-list>
+        <ng-container *ngFor="let file of files; let i = index">
+          <ion-item class="item item-thumbnail-left" menu-closes (click)="openFile(file, i)">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-10>
+                  <h4>{{ file.name }}</h4>
+                  <p>{{_album.getArtist()}}</p>
+                </ion-col>
+                <ion-col text-right>
+                  <p item-end *ngIf="currentFile.index === i"></p>
+                  <ion-icon item-end color="light" name="play" *ngIf="currentFile.index === i"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ng-container>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+<ion-pullup #pullup (onExpand)="footerExpanded()" (onCollapse)="footerCollapsed()" [(state)]="footerState">
+  <ion-pullup-tab [footer]="pullup">
+    <ion-col (tap)="toggleFooter()" *ngIf="footerState == 1" col-4 col-sm-4 col-md-4 col-lg-4 col-xl-3>
+    </ion-col>
+    <ion-col class="img-col"  (tap)="toggleFooter()" *ngIf="footerState == 1" col-4 col-sm-4 col-md-4 col-lg-4 col-xl-3>
+      <img src="assets/icon/line.png">
+    </ion-col>
+    <ion-col (tap)="toggleFooter()" *ngIf="footerState == 1" col-4 col-sm-4 col-md-4 col-lg-4 col-xl-3>
+    </ion-col>
+   <ion-toolbar padding  *ngIf="footerState == 0">
+    <ion-grid>
+      <ion-row align-items-center id="media-controls">
+          <ion-col (tap)="toggleFooter()">
+              <ion-card class="img-pull">     
+                    <img src="assets/imgs/Folder.jpg">    
+              </ion-card>
+            </ion-col>
+           <ion-col col-4 class="card-background-page" (tap)="toggleFooter()">
+              <div class='info'>
+                  <div >Mode avion</div>
+                </div>
+            </ion-col>
+        <!--<button clear ion-col ion-button (click)="previous()">-->
+          <!--<ion-icon class="icon ion-shuffle" color="light" name="shuffle"> </ion-icon>-->
+        <!--</button>-->
+       <button clear ion-col ion-button *ngIf="!state.playing" (click)="play()">
+          <!--<ion-icon color="light" name="play"></ion-icon>-->
+          <img class="thumb" width="36px" src="assets/icon/play.svg">
+        </button>
+        <button clear ion-col ion-button *ngIf="!!state.playing" (click)="pause()">
+          <!--<ion-icon color="light" name="pause"></ion-icon>-->
+          <img class="thumb" width="36px" src="assets/icon/pause.svg">
+        </button>
+        <button clear ion-col ion-button (click)="next()">
+          <!--<ion-icon color="light" name="skip-forward"></ion-icon>-->
+          <img class="thumb" width="36px" src="assets/icon/next.svg">
+        </button>
+        <!--<button clear ion-col ion-button (ionChange)="change(this.loop)" >-->
+          <!--<ion-icon class="icon ion-sync" *ngIf="this.loop" color="light" name="sync"></ion-icon>-->
+          <!--<ion-icon class="icon ion-sync" *ngIf="!this.loop" color="dark" name="sync"></ion-icon>-->
+        <!--</button>-->
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+  </ion-pullup-tab>
+  <ion-content>
+<ng-container class="card-background-page">
+  <ion-grid>
+    <ion-row>
+        <ion-col col-6 class="card-background-page">
+            <ion-card  class="music-card palying">
+                <div class='music-card playing'>     
+                  <img src="assets/imgs/Folder.jpg">
+                </div>
+           </ion-card>
+        </ion-col>
+        <ion-col col-6 class="card-background-page">
+          <div class='info' *ngFor="let file of files; let i = index" >
+            <div class='title'>{{title}}</div>
+            <div class='artist'>{{artist}}</div>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+   
+    <ion-toolbar *ngIf="currentFile.file || true" >
+      <ion-range min="1" color="dark" [max]="state.durationSec" [formControl]="seekbar" (ionFocus)="onSeekStart()" (ionBlur)="onSeekEnd($event)"
+                 name="seekbar">
+        <ion-label color="dark" range-left>{{ state.time }}</ion-label>
+        <ion-label color="dark" range-right>{{ state.duration }}</ion-label>
+      </ion-range>
+    </ion-toolbar>
+  
+    <ion-toolbar padding>
+      <ion-grid>
+        <ion-row align-items-center id="media-controls">
+          <!--<button clear ion-col ion-button (click)="previous()">-->
+            <!--<ion-icon class="icon ion-shuffle" color="light" name="shuffle"> </ion-icon>-->
+          <!--</button>-->
+          <button clear ion-col ion-button (click)="previous()">
+            <!--<ion-icon color="light" name="skip-backward"> </ion-icon>-->
+            <img class="thumb" width="36px" src="assets/icon/previous.svg">
+          </button>
+          <button clear ion-col ion-button *ngIf="!state.playing" (click)="play()">
+            <!--<ion-icon color="light" name="play"></ion-icon>-->
+            <img class="thumb" width="36px" src="assets/icon/play.svg">
+          </button>
+          <button clear ion-col ion-button *ngIf="!!state.playing" (click)="pause()">
+            <!--<ion-icon color="light" name="pause"></ion-icon>-->
+            <img class="thumb" width="36px" src="assets/icon/pause.svg">
+          </button>
+          <button clear ion-col ion-button (click)="next()">
+            <!--<ion-icon color="light" name="skip-forward"></ion-icon>-->
+            <img class="thumb" width="36px" src="assets/icon/next.svg">
+          </button>
+          <!--<button clear ion-col ion-button (ionChange)="change(this.loop)" >-->
+            <!--<ion-icon class="icon ion-sync" *ngIf="this.loop" color="light" name="sync"></ion-icon>-->
+            <!--<ion-icon class="icon ion-sync" *ngIf="!this.loop" color="dark" name="sync"></ion-icon>-->
+          <!--</button>-->
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ng-container>  
+
+  </ion-content>
+</ion-pullup>
